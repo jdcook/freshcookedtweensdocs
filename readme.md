@@ -27,7 +27,6 @@ FCTween::PlayActorLocationAdd(this, FVector(0, 0, 50), 2, EFCEase::OutCubic);
 ![](./images/basic_usage_bp2.png)
 
 ## Table of Contents
-> 1. [Plugin Setup](#plugin-setup)
 > 1. [Blueprints](#blueprintsection)
 > 1. [C++](#cppsection)
 > 1. [Easing Functions](#easing-functions)
