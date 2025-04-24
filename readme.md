@@ -1,6 +1,4 @@
-﻿# Fresh Cooked Tweens
-
-![](FCTween/Resources/Icon128.png) 
+﻿![](FCTween/Resources/Icon128.png) 
 
 A tweening library for Unreal Engine, by [Jared Cook](https://twitter.com/FreshCookedDev).
 
