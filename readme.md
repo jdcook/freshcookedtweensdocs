@@ -500,7 +500,7 @@ Bounce
 
 InBack
 - Anticipation; pull back a little before going forward
-- EaseParam1 (Overshoot) is set to 1.70158 by default. If you want to know why, here you go: https://github.com/Michaelangel007/easing#the-magic-of-170158
+- EaseParam1 (Overshoot) is set to 1.70158 by default. If you want to know why, here you go: [https://github.com/Michaelangel007/easing#the-magic-of-170158](https://github.com/Michaelangel007/easing#the-magic-of-170158)
 
 ![](./images/back_demo.gif)
 
