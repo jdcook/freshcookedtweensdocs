@@ -31,10 +31,11 @@ FCTween::PlayActorLocationAdd(this, FVector(0, 0, 50), 2, EFCEase::OutCubic);
 > 1. [C++](#cppsection)
 > 1. [Easing Functions](#easing-functions)
 > 1. [Performance](#performance)
+> 1. [References](#references)
 
 ## Why Tweens?
 
-Tweening libraries provide convenient curve equations to ease a value be***tween*** a start and end, like a position, scale, color, or anything you want to smoothly change. They are useful in small projects and large projects. Many polished UIs have some kind of tween operating.
+Tweening libraries provide convenient curve functions to ease a value be***tween*** a start and end, like a position, scale, color, or anything you want to smoothly change. They are useful in small projects and large projects. Many polished UIs have some kind of tween operating.
 
 It can be a large efficiency gain to let a programmer or designer quickly set up a tween with easily tunable values, instead of taking up the art department's precious time tweaking curves manually.
 
@@ -400,6 +401,7 @@ virtual void Tick(float DeltaSeconds) override
 }
 ```
 
+<a name="easing-functions"></a>
 # Easing Functions
 Useful quick reference: https://easings.net/
 
@@ -509,6 +511,7 @@ OutBack
 ![](./images/outback_demo.gif)
 
 
+<a name="performance"></a>
 # Performance
 
 - FCTween uses a LinkedList to keep track of tweens, for fast adding/removal.
@@ -517,3 +520,11 @@ OutBack
 - Tweens are pre-allocated at GameInstance initialize, then allocated as needed. Use the FCTween Project Settings to set the initial capacity.
     - There are console warnings when you stop PIE to let you know when you could increase your initial capacity for performance.
 
+<a name="references"></a>
+# References
+- http://robertpenner.com/easing/
+  - The original easing functions.
+- https://github.com/Michaelangel007/easing
+  - Handier versions of those functions.
+- https://github.com/photonstorm/phaser/tree/master/src/math/easing
+  - The specific version of the Stepped and Elastic functions comes from Phaser.
