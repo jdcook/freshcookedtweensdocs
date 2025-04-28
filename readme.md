@@ -32,6 +32,7 @@ FCTween::PlayActorLocationAdd(this, FVector(0, 0, 50), 2, EFCEase::OutCubic);
 > 1. [Easing Functions](#easing-functions)
 > 1. [Performance](#performance)
 > 1. [References](#references)
+> 1. [API Reference](#api-reference)
 
 ## Why Tweens?
 
@@ -510,7 +511,6 @@ OutBack
 
 ![](./images/outback_demo.gif)
 
-
 <a name="performance"></a>
 # Performance
 
@@ -528,3 +528,619 @@ OutBack
   - Handier versions of those functions.
 - https://github.com/photonstorm/phaser/tree/master/src/math/easing
   - The specific version of the Stepped and Elastic functions comes from Phaser.
+
+
+<a name="api-reference"></a>
+# API Reference
+
+Static functions you can call in FCTween.h:
+```c++
+
+	/**
+	 * Convenience function for FCEasing::Ease()
+	 */
+	static float Ease(float t, EFCEase EaseType);
+
+	/**
+	 * Play a float tween. Call BindTo() on the result to make it a weak lambda.
+	 */
+	static FCTweenInstanceFloat* Play(float Start, float End, TFunction<void(float)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a float tween with dynamic values.
+	 * Call BindTo() on the result to make it a weak lambda.
+	 * Call UseDynamicValuesOnlyOnce() to recalculate values only on the first update (good for TweenQueues).
+	 */
+	static FCTweenInstanceFloat* Play(TFunction<float()> Start, TFunction<float()> End, TFunction<void(float)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a float tween with a dynamic end value.
+	 * Call BindTo() on the result to make it a weak lambda.
+	 * Call UseDynamicValuesOnlyOnce() to recalculate values only on the first update (good for TweenQueues).
+	 */
+	static FCTweenInstanceFloat* Play(float Start, TFunction<float()> End, TFunction<void(float)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a float tween with a dynamic start value.
+	 * Call BindTo() on the result to make it a weak lambda.
+	 * Call UseDynamicValuesOnlyOnce() to recalculate values only on the first update (good for TweenQueues).
+	 */
+	static FCTweenInstanceFloat* Play(TFunction<float()> Start, float End, TFunction<void(float)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a vector2 tween. Call BindTo() on the result to make it a weak lambda (meaning memory-safe).
+	 */
+	static FCTweenInstanceVector2D* Play(FVector2D Start, FVector2D End, TFunction<void(FVector2D)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a vector2 tween with dynamic values.
+	 * Call BindTo() on the result to make it a weak lambda.
+	 * Call UseDynamicValuesOnlyOnce() to recalculate values only on the first update (good for TweenQueues).
+	 */
+	static FCTweenInstanceVector2D* Play(
+		TFunction<FVector2D()> Start, TFunction<FVector2D()> End, TFunction<void(FVector2D)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a vector2 tween with a dynamic end value.
+	 * Call BindTo() on the result to make it a weak lambda.
+	 * Call UseDynamicValuesOnlyOnce() to recalculate values only on the first update (good for TweenQueues).
+	 */
+	static FCTweenInstanceVector2D* Play(FVector2D Start, TFunction<FVector2D()> End, TFunction<void(FVector2D)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a vector2 tween with a dynamic start value.
+	 * Call BindTo() on the result to make it a weak lambda.
+	 * Call UseDynamicValuesOnlyOnce() to recalculate values only on the first update (good for TweenQueues).
+	 */
+	static FCTweenInstanceVector2D* Play(TFunction<FVector2D()> Start, FVector2D End, TFunction<void(FVector2D)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a vector tween. Call BindTo() on the result to make it a weak lambda (meaning memory-safe).
+	 */
+	static FCTweenInstanceVector* Play(FVector Start, FVector End, TFunction<void(FVector)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a vector tween with dynamic values.
+	 * Call BindTo() on the result to make it a weak lambda.
+	 * Call UseDynamicValuesOnlyOnce() to recalculate values only on the first update (good for TweenQueues).
+	 */
+	static FCTweenInstanceVector* Play(
+		TFunction<FVector()> Start, TFunction<FVector()> End, TFunction<void(FVector)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a vector tween with a dynamic end value.
+	 * Call BindTo() on the result to make it a weak lambda.
+	 * Call UseDynamicValuesOnlyOnce() to recalculate values only on the first update (good for TweenQueues).
+	 */
+	static FCTweenInstanceVector* Play(FVector Start, TFunction<FVector()> End, TFunction<void(FVector)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a vector tween with a dynamic start value.
+	 * Call BindTo() on the result to make it a weak lambda.
+	 * Call UseDynamicValuesOnlyOnce() to recalculate values only on the first update (good for TweenQueues).
+	 */
+	static FCTweenInstanceVector* Play(TFunction<FVector()> Start, FVector End, TFunction<void(FVector)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a vector4 tween. Call BindTo() on the result to make it a weak lambda (meaning memory-safe).
+	 */
+	static FCTweenInstanceVector4* PlayVector4(FVector4 Start, FVector4 End, TFunction<void(FVector4)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a vector4 tween with dynamic values.
+	 * Call BindTo() on the result to make it a weak lambda.
+	 * Call UseDynamicValuesOnlyOnce() to recalculate values only on the first update (good for TweenQueues).
+	 */
+	static FCTweenInstanceVector4* PlayVector4(
+		TFunction<FVector4()> Start, TFunction<FVector4()> End, TFunction<void(FVector4)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a vector4 tween with a dynamic end value.
+	 * Call BindTo() on the result to make it a weak lambda.
+	 * Call UseDynamicValuesOnlyOnce() to recalculate values only on the first update (good for TweenQueues).
+	 */
+	static FCTweenInstanceVector4* PlayVector4(
+		FVector4 Start, TFunction<FVector4()> End, TFunction<void(FVector4)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a vector4 tween with a dynamic start value.
+	 * Call BindTo() on the result to make it a weak lambda.
+	 * Call UseDynamicValuesOnlyOnce() to recalculate values only on the first update (good for TweenQueues).
+	 */
+	static FCTweenInstanceVector4* PlayVector4(
+		TFunction<FVector4()> Start, FVector4 End, TFunction<void(FVector4)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a quaternion tween. Call BindTo() on the result to make it a weak lambda (meaning memory-safe).
+	 */
+	static FCTweenInstanceQuat* Play(FQuat Start, FQuat End, TFunction<void(FQuat)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a quaternion tween with dynamic values.
+	 * Call BindTo() on the result to make it a weak lambda.
+	 * Call UseDynamicValuesOnlyOnce() to recalculate values only on the first update (good for TweenQueues).
+	 */
+	static FCTweenInstanceQuat* Play(TFunction<FQuat()> Start, TFunction<FQuat()> End, TFunction<void(FQuat)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a quaternion tween with a dynamic end value.
+	 * Call BindTo() on the result to make it a weak lambda.
+	 * Call UseDynamicValuesOnlyOnce() to recalculate values only on the first update (good for TweenQueues).
+	 */
+	static FCTweenInstanceQuat* Play(FQuat Start, TFunction<FQuat()> End, TFunction<void(FQuat)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Play a quaternion tween with a dynamic start value.
+	 * Call BindTo() on the result to make it a weak lambda.
+	 * Call UseDynamicValuesOnlyOnce() to recalculate values only on the first update (good for TweenQueues).
+	 */
+	static FCTweenInstanceQuat* Play(TFunction<FQuat()> Start, FQuat End, TFunction<void(FQuat)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Shortcut to play a Color tween, utilizing FLinearColor::LerpUsingHSV(). Uses a float tween to accomplish this.
+	 * Call BindTo() on the result to make it a weak lambda (meaning memory-safe).
+	 */
+	static FCTweenInstanceFloat* Play(FLinearColor Start, FLinearColor End, TFunction<void(FLinearColor)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	static FCTweenQueue* CreateQueue();
+
+	/**
+	 * Tween a spline, returning the transform at that point every update.
+	 * This tween safely uses a weak pointer to the Spline. Call BindTo() to ALSO make it a weak lambda with respect to whatever object you are moving.
+	 */
+	static FCTweenInstanceFloat* PlaySpline(USplineComponent* Spline, TFunction<void(FTransform)> OnUpdate, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Tween an actor along a spline path from start to end over the given duration. Following spline rotation is optional.
+	 * This is a memory-safe function; this tween will be destroyed when the actor is destroyed. This tween safely uses a weak pointer to the spline.
+	 */
+	static FCTweenInstanceFloat* PlayActorSpline(AActor* Actor, USplineComponent* Spline, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad,
+		bool bShouldUpdateRotation = true, bool bSweep = false, bool bTeleport = true);
+
+	/**
+	 * Tween the actor's location to the given location.
+	 * This is a memory-safe function; this tween will be destroyed when the actor is destroyed.
+	 * @param Actor Actor to be moved
+	 * @param EndLocation World location
+	 */
+	static FCTweenInstanceVector* PlayActorLocation(
+		AActor* Actor, FVector EndLocation, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad, bool bSweep = false, bool bTeleport = true);
+
+	/**
+	 * Tween the actor's location by adding onto the starting location.
+	 * This is a memory-safe function; this tween will be destroyed when the actor is destroyed.
+	 * @param Actor Actor to be moved
+	 * @param AddedEndLocation Added onto the starting location
+	 */
+	static FCTweenInstanceVector* PlayActorLocationAdd(
+		AActor* Actor, FVector AddedEndLocation, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad, bool bSweep = false, bool bTeleport = true);
+
+	/**
+	 * Tween the actor's rotation to the given rotation.
+	 * This is a memory-safe function; this tween will be destroyed when the actor is destroyed.
+	 * @param Actor Actor to be rotated
+	 * @param EndRotation World rotation
+	 */
+	static FCTweenInstanceQuat* PlayActorRotation(AActor* Actor, FQuat EndRotation, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad, bool bTeleport = true);
+
+	/**
+	 * Tween the actor's rotation by adding onto the starting rotation.
+	 * This is a memory-safe function; this tween will be destroyed when the actor is destroyed.
+	 * @param Actor Actor to be rotated
+	 * @param AddedEndRotation Added onto the starting rotation
+	 */
+	static FCTweenInstanceQuat* PlayActorRotationAdd(AActor* Actor, FQuat AddedEndRotation, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad, bool bTeleport = true);
+
+	/**
+	 * Tween the actor's scale3D to the given scale.
+	 * This is a memory-safe function; this tween will be destroyed when the actor is destroyed.
+	 * @param Actor Actor to be rotated
+	 * @param EndScale World scale
+	 */
+	static FCTweenInstanceVector* PlayActorScale(AActor* Actor, FVector EndScale, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Tween the actor's scale3D by adding onto the starting scale.
+	 * This is a memory-safe function; this tween will be destroyed when the actor is destroyed.
+	 * @param Actor Actor to be rotated
+	 * @param AddedEndScale Added onto the starting scale
+	 */
+	static FCTweenInstanceVector* PlayActorScaleAdd(AActor* Actor, FVector AddedEndScale, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Tween the component's location to the given world location.
+	 * This is a memory-safe function; this tween will be destroyed when the component is destroyed.
+	 * @param Component Component to be moved
+	 * @param EndLocation World location
+	 */
+	static FCTweenInstanceVector* PlayComponentLocation(
+		USceneComponent* Component, FVector EndLocation, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad, bool bSweep = false, bool bTeleport = true);
+
+	/**
+	 * Tween the component's location to the given relative location.
+	 * This is a memory-safe function; this tween will be destroyed when the component is destroyed.
+	 * @param Component Component to be moved
+	 * @param RelativeEndLocation Location relative to parent component
+	 */
+	static FCTweenInstanceVector* PlayComponentLocationRelative(
+		USceneComponent* Component, FVector RelativeEndLocation, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad, bool bSweep = false, bool bTeleport = true);
+
+	/**
+	 * Tween the component's location by adding onto the starting relative location.
+	 * This is a memory-safe function; this tween will be destroyed when the component is destroyed.
+	 * @param Component Component to be moved
+	 * @param AddedRelativeEndLocation Added onto the starting relative location
+	 */
+	static FCTweenInstanceVector* PlayComponentLocationRelativeAdd(
+		USceneComponent* Component, FVector AddedRelativeEndLocation, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad, bool bSweep = false, bool bTeleport = true);
+
+	/**
+	 * Tween the component's rotation to the given world rotation.
+	 * This is a memory-safe function; this tween will be destroyed when the component is destroyed.
+	 * @param Component Component to be rotated
+	 * @param EndRotation World rotation
+	 */
+	static FCTweenInstanceQuat* PlayComponentRotation(
+		USceneComponent* Component, FQuat EndRotation, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad, bool bSweep = false, bool bTeleport = true);
+
+	/**
+	 * Tween the component's rotation to the given relative rotation.
+	 * This is a memory-safe function; this tween will be destroyed when the component is destroyed.
+	 * @param Component Component to be rotated
+	 * @param RelativeEndRotation Relative rotation
+	 */
+	static FCTweenInstanceQuat* PlayComponentRotationRelative(
+		USceneComponent* Component, FQuat RelativeEndRotation, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad, bool bSweep = false, bool bTeleport = true);
+
+	/**
+	 * Tween the component's rotation by adding onto the starting relative rotation.
+	 * This is a memory-safe function; this tween will be destroyed when the component is destroyed.
+	 * @param Component Component to be rotated
+	 * @param AddedRelativeEndRotation Added onto the starting relative rotation
+	 */
+	static FCTweenInstanceQuat* PlayComponentRotationRelativeAdd(
+		USceneComponent* Component, FQuat AddedRelativeEndRotation, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad, bool bSweep = false, bool bTeleport = true);
+
+	/**
+	 * Tween the component's scale to the given world scale.
+	 * This is a memory-safe function; this tween will be destroyed when the component is destroyed.
+	 * @param Component Component to be scaled
+	 * @param EndScale World scale
+	 */
+	static FCTweenInstanceVector* PlayComponentScale(USceneComponent* Component, FVector EndScale, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Tween the component's scale to the given relative scale.
+	 * This is a memory-safe function; this tween will be destroyed when the component is destroyed.
+	 * @param Component Component to be scaled
+	 * @param RelativeEndScale Relative scale
+	 */
+	static FCTweenInstanceVector* PlayComponentScaleRelative(USceneComponent* Component, FVector RelativeEndScale, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Tween the component's scale by adding onto the starting relative scale.
+	 * This is a memory-safe function; this tween will be destroyed when the component is destroyed.
+	 * @param Component Component to be scaled
+	 * @param AddedRelativeEndScale Added onto relative scale
+	 */
+	static FCTweenInstanceVector* PlayComponentScaleRelativeAdd(USceneComponent* Component, FVector AddedRelativeEndScale, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the material is destroyed.
+	 */
+	static FCTweenInstanceFloat* PlayMaterialScalar(
+		UMaterialInstanceDynamic* Material, FName ParameterName, float Start, float End, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the material is destroyed.
+	 */
+	static FCTweenInstanceFloat* PlayMaterialScalarIndex(
+		UMaterialInstanceDynamic* Material, int32 ParameterIndex, float Start, float End, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the material is destroyed.
+	 */
+	static FCTweenInstanceFloat* PlayMaterialVector(
+		UMaterialInstanceDynamic* Material, FName ParameterName, FLinearColor Start, FLinearColor End, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the material is destroyed.
+	 */
+	static FCTweenInstanceFloat* PlayMaterialVectorIndex(
+		UMaterialInstanceDynamic* Material, int32 ParameterIndex, FLinearColor Start, FLinearColor End, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 * @param Widget Widget to be scaled
+	 */
+	static FCTweenInstanceVector2D* PlayWidgetTranslation(
+		UWidget* Widget, FVector2D StartTranslation, FVector2D EndTranslation, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Tween the widget's render translation by adding onto the starting translation.
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 * @param Widget Widget to be translated
+	 * @param AddedEndTranslation Added onto starting translation
+	 */
+	static FCTweenInstanceVector2D* PlayWidgetTranslationAdd(UWidget* Widget, FVector2D AddedEndTranslation, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 * @param Widget Widget to be scaled
+	 */
+	static FCTweenInstanceVector2D* PlayWidgetScale(UWidget* Widget, FVector2D StartScale, FVector2D EndScale, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 * @param Widget Widget to be scaled
+	 * @param AddedEndScale Added onto starting scale
+	 */
+	static FCTweenInstanceVector2D* PlayWidgetScaleAdd(UWidget* Widget, FVector2D AddedEndScale, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 * @param Widget Widget to be rotated
+	 */
+	static FCTweenInstanceFloat* PlayWidgetRotation(UWidget* Widget, float StartAngle, float EndAngle, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Tween the widget's render rotation by adding onto the starting rotation.
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 * @param Widget Widget to be rotated
+	 * @param AddedEndAngle Added onto starting rotation
+	 */
+	static FCTweenInstanceFloat* PlayWidgetRotationAdd(UWidget* Widget, float AddedEndAngle, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 * @param Widget Widget to be rotated
+	 */
+	static FCTweenInstanceFloat* PlayWidgetOpacity(UWidget* Widget, float StartOpacity, float EndOpacity, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Tweens the widget's padding. Automatically gets the correct slot type by attempting to cast.
+	 * Checks for these slot classes in this order: UOverlaySlot, UVerticalBoxSlot, UHorizontalBoxSlot, USizeBoxSlot, UBorderSlot, UScrollBoxSlot, UButtonSlot
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 */
+	static FCTweenInstanceVector4* PlayWidgetPadding(UWidget* Widget, FVector4 StartPadding, FVector4 EndPadding, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 */
+	static FCTweenInstanceVector4* PlayWidgetCanvasOffset(UWidget* Widget, FVector4 StartOffsets, FVector4 EndOffsets, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 */
+	static FCTweenInstanceVector4* PlayWidgetCanvasAnchor(UWidget* Widget, FVector4 StartAnchors, FVector4 EndAnchors, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 */
+	static FCTweenInstanceVector2D* PlayWidgetCanvasAnchorMinimum(
+		UWidget* Widget, FVector2D StartAnchor, FVector2D EndAnchor, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 */
+	static FCTweenInstanceVector2D* PlayWidgetCanvasAnchorMaximum(
+		UWidget* Widget, FVector2D StartAnchor, FVector2D EndAnchor, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * Tweens the X and Y of the canvas slot offsets.
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 */
+	static FCTweenInstanceVector2D* PlayWidgetCanvasPosition(
+		UWidget* Widget, FVector2D StartPosition, FVector2D EndPosition, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 */
+	static FCTweenInstanceFloat* PlayWidgetSizeBoxWidthOverride(USizeBox* Widget, float Start, float End, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 */
+	static FCTweenInstanceFloat* PlayWidgetSizeBoxHeightOverride(USizeBox* Widget, float Start, float End, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 */
+	static FCTweenInstanceFloat* PlayWidgetSizeBoxMinDesiredWidth(USizeBox* Widget, float Start, float End, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 */
+	static FCTweenInstanceFloat* PlayWidgetSizeBoxMaxDesiredWidth(USizeBox* Widget, float Start, float End, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 */
+	static FCTweenInstanceFloat* PlayWidgetSizeBoxMinDesiredHeight(USizeBox* Widget, float Start, float End, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+	/**
+	 * This is a memory-safe function; this tween will be destroyed when the widget is destroyed.
+	 */
+	static FCTweenInstanceFloat* PlayWidgetSizeBoxMaxDesiredHeight(USizeBox* Widget, float Start, float End, float DurationSecs, EFCEase EaseType = EFCEase::OutQuad);
+
+```
+
+FCTweenInstance options:
+```c++
+
+	FCTweenInstance* SetDelay(float InDelaySecs);
+
+	/**
+	 * How many times to replay the loop. A single loop includes the optional yoyo. Use -1 for infinity
+	 */
+	FCTweenInstance* SetLoops(int InNumLoops);
+
+	/**
+	 * seconds to wait before starting another loop
+	 */
+	FCTweenInstance* SetLoopDelay(float InLoopDelaySecs);
+
+	/**
+	 * interpolate backwards after reaching the end
+	 */
+	FCTweenInstance* SetYoyo(bool bInShouldYoyo);
+
+	/**
+	 * seconds to wait before yoyo-ing backwards
+	 */
+	FCTweenInstance* SetYoyoDelay(float InYoyoDelaySecs);
+
+	/**
+	 * multiply the time delta by this number to speed up or slow down the tween. Only positive numbers allowed.
+	 */
+	FCTweenInstance* SetTimeMultiplier(float InTimeMultiplier);
+
+	/**
+	 * set EaseParam1 to fine-tune specific equations. Elastic: Amplitude (1.0) / Back: Overshoot (1.70158) / Stepped: Steps
+	 * (10) / Smoothstep: x0 (0)
+	 */
+	FCTweenInstance* SetEaseParam1(float InEaseParam1);
+
+	/**
+	 * set EaseParam2 to fine-tune specific equations. Elastic: Period (0.2) / Smoothstep: x1 (1)
+	 */
+	FCTweenInstance* SetEaseParam2(float InEaseParam2);
+
+	/**
+	 * let this tween run while the game is paused
+	 */
+	FCTweenInstance* SetCanTickDuringPause(bool bInCanTickDuringPause);
+
+	/**
+	 * let this tween run while the game is paused
+	 */
+	FCTweenInstance* SetUseGlobalTimeDilation(bool bInUseGlobalTimeDilation);
+
+	/**
+	 * Automatically recycles this instance after the tween is complete (or Stop() is called)
+	 * Note: If you also use BindTo(), keep in mind that this tween won't continue executing if the bound object is invalid.
+	 */
+	FCTweenInstance* SetAutoDestroy(bool bInShouldAutoDestroy);
+
+	/**
+	 * Tell the tween to keep a weak pointer to the Object, and recycle itself if the Object is invalid.
+	 *
+	 * Note: If AutoDestroy is set to false, this tween will not be recycled until you manually call Destroy(). It will just pause itself when the object becomes invalid.
+	 */
+	FCTweenInstance* BindTo(UObject* Object);
+	/**
+	 * If there is a binding, checks its validity. If there is no binding, returns true by default.
+	 */
+	bool IsBindingValid();
+
+	/**
+	 * Recalculate start and end values with provided lambdas only once.
+	 */
+	FCTweenInstance* UseDynamicValuesOnlyOnce();
+	/**
+	 * Recalculate start value with provided lambda only once.
+	 */
+	FCTweenInstance* UseDynamicStartOnlyOnce();
+	/**
+	 * Recalculate end value with provided lambda only once.
+	 */
+	FCTweenInstance* UseDynamicEndOnlyOnce();
+
+	/**
+	 * This lambda will be called when the tween first begins, after the initial Delay timer. Called again if Restart() is triggered. Not called on loops.
+	 */
+	FCTweenInstance* SetOnStart(TFunction<void()> Handler);
+	FCTweenInstance* SetOnYoyo(TFunction<void()> Handler);
+	FCTweenInstance* SetOnLoop(TFunction<void()> Handler);
+	FCTweenInstance* SetOnComplete(TFunction<void()> Handler);
+	/**
+	 * Takes the existing tween settings and restarts the timer, to play it again from the start
+	 */
+	void Restart();
+	/**
+	 * stop tweening and mark this instance for recycling
+	 */
+	void Destroy();
+	void Pause();
+	void Unpause();
+```
+
+FCTweenQueue options:
+```c++
+
+	/**
+	 * Adds a tween to the end of the queue. It will be paused until the queue reaches it.
+	 * Note: infinitely looping tweens will infinitely loop and prevent the queue from continuing.
+	 */
+	void AddTween(FCTweenInstance* Tween);
+	/**
+	 * Insert the tween at the given index.
+	 */
+	void Insert(FCTweenInstance* Tween, int Index);
+	/**
+	 * Runs the callback when it is reached. ex:
+	 *
+	 * Queue.AddCallback([this]()
+	 * {
+	 *		// run code here
+	 * });
+	 */
+	void AddCallback(TFunction<void()> Callback);
+	/**
+	 * Insert the callback at the given index. ex:
+	 *
+	 * Queue.InsertCallback([this]()
+	 * {
+	 *		// run code here
+	 * });
+	 */
+	void InsertCallback(TFunction<void()> Callback, int Index);
+	/**
+	 * Delays the next item in the queue.
+	 */
+	void AddDelay(float DelaySecs);
+	/**
+	 * Insert the delay at the given index.
+	 */
+	void InsertDelay(float DelaySecs, int Index);
+	/**
+	 * Set the time multiplier for all contained tweens and delays.
+	 */
+	FCTweenQueue* SetTimeMultiplier(float InTimeMultiplier);
+	/**
+	 * Set bInCanTickDuringPause for all contained tweens and delays.
+	 */
+	FCTweenQueue* SetCanTickDuringPause(bool bInCanTickDuringPause);
+	/**
+	 * Set bUseGlobalTimeDilation for all contained tweens and delays.
+	 */
+	FCTweenQueue* SetUseGlobalTimeDilation(bool bInUseGlobalTimeDilation);
+	/**
+	 * How many times to replay the queue. Use -1 for infinity.
+	 */
+	FCTweenQueue* SetLoops(int InNumLoops);
+	/**
+	 * Tell the queue to keep a weak pointer to the Object, and recycle itself if the Object is invalid.
+	 *
+	 * Note: If AutoDestroy is set to false, this queue will not be recycled until you manually call Destroy(). It will just pause itself when the object becomes invalid.
+	 */
+	FCTweenQueue* BindTo(UObject* Object);
+	/**
+	 * If there is a binding, checks its validity. If there is no binding, returns true by default.
+	 */
+	bool IsBindingValid();
+	/**
+	 * Tell this queue not to recycle itself when complete, so you can manually restart it at some point.
+	 * Note: If you also use BindTo(), keep in mind that this queue won't continue executing if the bound object is invalid.
+	 */
+	FCTweenQueue* SetAutoDestroy(bool bInAutoDestroy);
+	/**
+	 * Set a callback for when the entire queue finishes executing.
+	 */
+	FCTweenQueue* SetOnQueueComplete(TFunction<void()> Callback);
+
+	void Pause();
+	void Unpause();
+	void Restart();
+	void Destroy();
+```
