@@ -536,6 +536,7 @@ OutBack
 Static functions you can call in FCTween.h:
 ```c++
 
+	static void ClearActiveTweens();
 	/**
 	 * Convenience function for FCEasing::Ease()
 	 */
